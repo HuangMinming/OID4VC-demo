@@ -35,5 +35,5 @@ WORKDIR /opt/oid4vc-demo/node-sqlite3
 RUN npm install --build-from-source
 
 WORKDIR /opt/oid4vc-demo/${PACKAGE_PATH}
-ENTRYPOINT npm run-script ${NODE_SCRIPT}
+# ENTRYPOINT npm run-script ${NODE_SCRIPT}
 
