@@ -1,14 +1,14 @@
 # Builder stage
-FROM node:lts-bookworm AS oid4vc-demo-builder
-SHELL ["/bin/bash", "-c"]
-RUN npm -g install pnpm && SHELL=bash pnpm setup && source /root/.bashrc && pnpm self-update
-RUN pnpm add typescript tslib sqlite3
-WORKDIR /opt/oid4vc-demo
+# FROM node:lts-bookworm AS oid4vc-demo-builder
+# SHELL ["/bin/bash", "-c"]
+# RUN npm -g install pnpm && SHELL=bash pnpm setup && source /root/.bashrc && pnpm self-update
+# RUN pnpm add typescript tslib sqlite3
+# WORKDIR /opt/oid4vc-demo
 
-COPY /. .
-RUN rm -rf /root/.local/share/pnpm/store
-RUN pnpm install -r
-RUN pnpm build
+# COPY /. .
+# RUN rm -rf /root/.local/share/pnpm/store
+# RUN pnpm install -r
+# RUN pnpm build
 
 # Final stage
 FROM node:lts-bookworm
@@ -20,6 +20,7 @@ RUN pnpm list
 WORKDIR /opt/oid4vc-demo
 
 COPY /. .
+RUN rm -rf /root/.local/share/pnpm/store
 RUN pnpm install -r
 RUN pnpm build
 ARG PACKAGE_PATH
