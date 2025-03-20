@@ -14,9 +14,9 @@ RUN pnpm build
 FROM node:lts-bookworm
 SHELL ["/bin/bash", "-c"]
 RUN npm -g install pnpm && SHELL=bash pnpm setup && source /root/.bashrc && pnpm self-update
-RUN pnpm add typescript tslib sqlite3
+RUN pnpm add typescript tslib
+pnpm add sqlite3 --save
 RUN pnpm list
-RUN npm -g install sqlite3
 WORKDIR /opt/oid4vc-demo
 
 COPY /. .
