@@ -66,6 +66,7 @@
       "@veramo/selective-disclosure": "4.2.0",
       "@veramo/url-handler": "4.2.0",
       "node-fetch": "2.6.12",
+      "sqlite3": "^5.1.6",
       "@digitalbazaar/http-client": "3.4.1"
     },
     "patchedDependencies": {
