@@ -29,6 +29,11 @@ ENV NODE_SCRIPT=${NODE_SCRIPT}
 # package node_modules has symlinks to root node_modules
 #COPY --from=oid4vc-demo-builder /opt/oid4vc-demo/node_modules /opt/oid4vc-demo/node_modules
 
+WORKDIR /opt/oid4vc-demo
+RUN git clone https://github.com/TryGhost/node-sqlite3.git
+WORKDIR /opt/oid4vc-demo/node-sqlite3
+RUN npm install --build-from-source
+
 WORKDIR /opt/oid4vc-demo/${PACKAGE_PATH}
-# ENTRYPOINT npm run-script ${NODE_SCRIPT}
-RUN pnpm add sqlite3 --save
+ENTRYPOINT npm run-script ${NODE_SCRIPT}
+
