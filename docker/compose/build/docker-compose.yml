@@ -39,7 +39,7 @@ services:
     container_name: oid4vp-demo-frontend
     image: oid4vp-demo-frontend:latest
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - "host.docker.internal:10.0.104.156"
     depends_on:
       - oid4vc-demo-ssi-agent
     tty: true
