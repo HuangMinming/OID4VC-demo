@@ -30,4 +30,4 @@ ENV NODE_SCRIPT=${NODE_SCRIPT}
 #COPY --from=oid4vc-demo-builder /opt/oid4vc-demo/node_modules /opt/oid4vc-demo/node_modules
 
 WORKDIR /opt/oid4vc-demo/${PACKAGE_PATH}
-# ENTRYPOINT npm run-script ${NODE_SCRIPT}
+ENTRYPOINT npm run-script ${NODE_SCRIPT}
